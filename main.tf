@@ -29,16 +29,16 @@ resource "terraform_data" "catalogue" {
     aws_instance.catalogue.id
   ]
 
-  provisioner "file" {
-    source      = "catalogue.sh"       # Local file/directory to copy
-    destination = "/tmp/catalogue.sh" # Remote path to place file/content
-  }
-
   connection {
     type     = "ssh"      # SSH or WinRM
     user     = "ec2-user" # Remote username
     password = "DevOps321"
     host     = aws_instance.catalogue.private_ip # Remote address
+  }
+
+  provisioner "file" {
+    source      = "catalogue.sh"       # Local file/directory to copy
+    destination = "/tmp/catalogue.sh" # Remote path to place file/content
   }
 
   provisioner "remote-exec" {
