@@ -4,12 +4,12 @@ resource "aws_lb_target_group" "catalogue" {
   protocol = "HTTP"
   vpc_id   = data.aws_ssm_parameter.vpc_id.id
   health_check {
-    healthy_threshold = 2
-    interval = 5
-    matcher = "200-299"
-    path = "/health"
-    port = 8080
-    timeout = 2
+    healthy_threshold   = 2
+    interval            = 5
+    matcher             = "200-299"
+    path                = "/health"
+    port                = 8080
+    timeout             = 2
     unhealthy_threshold = 3
   }
 }
