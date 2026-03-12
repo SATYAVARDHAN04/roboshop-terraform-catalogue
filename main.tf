@@ -31,7 +31,7 @@ resource "terraform_data" "catalogue" {
 
   provisioner "file" {
     source      = "catalogue.sh"       # Local file/directory to copy
-    destination = "/temp/catalogue.sh" # Remote path to place file/content
+    destination = "/tmp/catalogue.sh" # Remote path to place file/content
 
     connection {
       type     = "ssh"      # SSH or WinRM
