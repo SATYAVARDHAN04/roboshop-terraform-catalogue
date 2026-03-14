@@ -115,8 +115,8 @@ resource "aws_launch_template" "catalogue" {
 resource "aws_autoscaling_group" "catalogue" {
   name                      = "${var.project}-${var.environment}-catalogue"
   max_size                  = 5
-  min_size                  = 2
-  desired_capacity          = 1
+  min_size                  = 1
+  desired_capacity          = 2
   health_check_grace_period = 120
   health_check_type         = "ELB"
   target_group_arns         = aws_lb_target_group.catalogue.arn
